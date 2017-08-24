@@ -13,7 +13,7 @@ export default {
     }
   },
   mounted () {
-    this.$http.get('https://cnodejs.org/api/v1/topics').then((data) => {
+    this.$http.get('/topics').then((data) => {
       console.log(data)
     }).catch((error) => {
       console.log(error)

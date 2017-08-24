@@ -1,6 +1,12 @@
 import axios from 'axios'
+import config from '../config/config'
 // Add a request interceptor
-axios.interceptors.request.use(function (config) {
+const http = axios.create({
+  baseURL: config.baseURL,
+  timeout: 5000,
+  headers: {'X-Custom-Header': 'foobar'}
+})
+http.interceptors.request.use(function (config) {
   // Do something before request is sent
   return config
 }, function (error) {
@@ -9,11 +15,11 @@ axios.interceptors.request.use(function (config) {
 })
 
 // Add a response interceptor
-axios.interceptors.response.use(function (response) {
+http.interceptors.response.use(function (response) {
   // Do something with response data
   return response
 }, function (error) {
   // Do something with response error
   return Promise.reject(error)
 })
-export default axios
+export default http

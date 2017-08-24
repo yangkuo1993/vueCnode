@@ -3,9 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import axios from './api/index'
+import http from './api/index'
 Vue.config.productionTip = false
-Vue.prototype.$http = axios
+Vue.prototype.$http = http
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
