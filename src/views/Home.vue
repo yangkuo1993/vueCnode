@@ -1,8 +1,8 @@
 <template>
     <div class="content-div">
-      <List-Item></List-Item>
-      <Footer-Item :styleObject="leftFooter"></Footer-Item>
-      <Footer-Item :styleObject="rightFooter"></Footer-Item>
+      <List-Item :itemList="homeList"></List-Item>
+      <!--<Footer-Item :styleObject="leftFooter"></Footer-Item>-->
+      <!--<Footer-Item :styleObject="rightFooter"></Footer-Item>-->
     </div>
 </template>
 
@@ -34,12 +34,21 @@
           overflow: 'hidden',
           fontSize: '30px',
           borderRadius: '0.5rem'
-        }
+        },
+        homeList: []
       }
+    },
+    created () {
+      this.$http.get('/topics').then((backData) => {
+        console.log(backData.data.data)
+        this.homeList = backData.data.data
+      })
     },
     components: {
       'List-Item': list,
       'Footer-Item': footer
+    },
+    methods: {
     }
   }
 </script>
