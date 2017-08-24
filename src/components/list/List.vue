@@ -2,17 +2,17 @@
   <div>
     <ul class="list">
       <li v-for="list in itemList">
-        <div>
+        <div class="left-img">
           <img class="header-img" :src="list.author.avatar_url" alt="">
         </div>
-        <div>
+        <div class="right-content">
           <p class="list-title">{{list.title}}</p>
           <div class="list-under-describe">
             <span>{{list.reply_count}}&nbsp;/&nbsp;{{list.visit_count}}</span>
             <span class="span-left">{{list.tab | typeFilter}}</span>
             <span v-if="list.top" class="span-left" style="color: #f25e5e">顶</span>
             <span v-if="list.good" class="span-left" style="color: #00e676">精</span>
-            <span class="span-left">{{list.last_reply_at | timeFormat}}</span>
+            <span class="right-date">{{list.last_reply_at | timeFormat}}</span>
           </div>
         </div>
       </li>
@@ -78,12 +78,12 @@
     overflow: hidden;
     border-bottom: 1px solid #f3f3f3;
   }
-  .list li div:first-child{
+  .left-img{
     width: 20%;
     display: flex;
     align-items: center;
   }
-  .list li div:last-child{
+  .right-content{
     width: 80%;
   }
   .list-title{
@@ -95,7 +95,7 @@
     word-break: break-all;
     text-overflow: ellipsis;
     overflow: hidden;
-    padding-right: 10px;
+    padding-right: 20px;
     color: #333333;
   }
   .list-under-describe{
@@ -114,5 +114,10 @@
   }
   .span-left{
     margin-left: 0.4rem;
+  }
+  .right-date{
+    flex-grow: 100;
+    text-align: right;
+    margin-right: 0.4rem;
   }
 </style>
