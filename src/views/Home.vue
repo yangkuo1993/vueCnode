@@ -1,18 +1,45 @@
 <template>
     <div class="content-div">
       <List-Item></List-Item>
+      <Footer-Item :styleObject="leftFooter"></Footer-Item>
+      <Footer-Item :styleObject="rightFooter"></Footer-Item>
     </div>
 </template>
 
 <script>
   import list from '../components/list/list'
+  import footer from '../components/footer/footer'
   export default {
     name: 'home',
     data () {
-      return {}
+      return {
+        leftFooter: {
+          position: 'fixed',
+          width: '1rem',
+          height: '1rem',
+          background: '#fff',
+          left: '0.5rem',
+          bottom: '0.5rem',
+          overflow: 'hidden',
+          fontSize: '30px',
+          borderRadius: '0.5rem'
+        },
+        rightFooter: {
+          position: 'fixed',
+          width: '1rem',
+          height: '1rem',
+          background: '#fff',
+          right: '0.5rem',
+          bottom: '0.5rem',
+          overflow: 'hidden',
+          fontSize: '30px',
+          borderRadius: '0.5rem'
+        }
+      }
     },
     components: {
-      'List-Item': list
+      'List-Item': list,
+      'Footer-Item': footer
     }
   }
 </script>

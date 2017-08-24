@@ -22,7 +22,7 @@
     font-size: 0.4rem;
     color: #fff;
     background: #2196f3;
-    height: 1rem;
+    height: 8%;
     align-items: center;
   }
   .menu-font div{
@@ -32,7 +32,7 @@
   .under-line{
     position: absolute;
     width: 20%;
-    height: 8%;
+    height: 5px;
     background: #000;
     bottom: 0px;
     left: 0%;
