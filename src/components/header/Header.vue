@@ -1,11 +1,11 @@
 <template>
     <div class="flex justify-content menu-font relative">
-      <div>全部</div>
-      <div>精华</div>
-      <div>问答</div>
-      <div>分享</div>
-      <div>招聘</div>
-      <div class="under-line"></div>
+      <div @click="tabType('all')" :class="[choose === 'all' ? 'choose' : '']">全部</div>
+      <div @click="tabType('good')" :class="[choose === 'good' ? 'choose' : '']">精华</div>
+      <div @click="tabType('ask')" :class="[choose === 'ask' ? 'choose' : '']">问答</div>
+      <div @click="tabType('share')" :class="[choose === 'share' ? 'choose' : '']">分享</div>
+      <div @click="tabType('job')" :class="[choose === 'job' ? 'choose' : '']">招聘</div>
+      <div class="under-line" :style="[underline]"></div>
     </div>
 </template>
 
@@ -13,7 +13,19 @@
   export default {
     name: 'header',
     data () {
-      return {}
+      return {
+        underline: {
+          left: '0'
+        },
+        choose: 'all'
+      }
+    },
+    methods: {
+      tabType (type) {
+        this.choose = type
+        window.vm.$emit('chooseType', type)
+        type === 'all' ? this.underline.left = '0' : type === 'good' ? this.underline.left = '20%' : type === 'ask' ? this.underline.left = '40%' : type === 'share' ? this.underline.left = '60%' : this.underline.left = '80%'
+      }
     }
   }
 </script>
@@ -21,7 +33,7 @@
   .menu-font{
     font-size: 0.4rem;
     color: #fff;
-    background: #2196f3;
+    background: #03a9f4;
     height: 8%;
     align-items: center;
   }
@@ -33,8 +45,12 @@
     position: absolute;
     width: 20%;
     height: 5px;
-    background: #000;
+    background: #84ffff;
     bottom: 0px;
     left: 0%;
+    transition: left .3s ease;
+  }
+  .choose{
+    color: #84ffff;
   }
 </style>

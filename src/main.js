@@ -7,9 +7,10 @@ import http from './api/index'
 Vue.config.productionTip = false
 Vue.prototype.$http = http
 /* eslint-disable no-new */
-new Vue({
+const vm = new Vue({
   el: '#app',
   router,
   template: '<App/>',
   components: { App }
 })
+window.vm = vm

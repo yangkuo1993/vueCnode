@@ -44,6 +44,14 @@
         this.homeList = backData.data.data
       })
     },
+    mounted () {
+      window.vm.$on('chooseType', (data) => {
+        this.$http.get('/topics?tab=' + data).then((backData) => {
+          console.log(backData.data.data)
+          this.homeList = backData.data.data
+        })
+      })
+    },
     components: {
       'List-Item': list,
       'Footer-Item': footer
