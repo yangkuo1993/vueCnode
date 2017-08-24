@@ -1,0 +1,13 @@
+.flex{
+  display: flex;
+}
+.justify-content{
+  justify-content: space-around;
+}
+.relative{
+  position: relative;
+}
+html,body{
+  width: 100%;
+  height: 100%;
+}
