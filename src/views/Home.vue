@@ -1,6 +1,8 @@
 <template>
     <div>
-      <List-Item :itemList="homeList"></List-Item>
+      <keep-alive>
+        <List-Item :itemList="homeList"></List-Item>
+      </keep-alive>
       <!--<Footer-Item :styleObject="leftFooter"></Footer-Item>-->
       <!--<Footer-Item :styleObject="rightFooter"></Footer-Item>-->
     </div>
@@ -42,9 +44,11 @@
     },
     mounted () {
       this.$http.get('/topics').then((backData) => {
-        console.log(backData.data.data)
         this.homeList = backData.data.data
       })
+    },
+    destroyed () {
+      console.log('就这么销毁了？')
     },
     components: {
       'List-Item': list,

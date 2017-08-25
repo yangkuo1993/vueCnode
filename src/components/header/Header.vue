@@ -31,6 +31,12 @@
           this.$router.push(type)
         }
       }
+    },
+    watch: {
+      '$route' (to, from) {
+        this.choose = to.name.toLowerCase()
+        this.tabType(this.choose)
+      }
     }
   }
 </script>

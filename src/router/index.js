@@ -9,10 +9,17 @@ const Ask = resolve => require(['../views/Ask'], resolve)
 Vue.use(Router)
 
 export default new Router({
+  scrollBehavior (to, from, savedPosition) {
+    // return 期望滚动到哪个的位置
+    console.log(to)
+    console.log(from)
+    console.log(savedPosition)
+    return {x: 0, y: 100}
+  },
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'All',
       component: Home
     },
     {

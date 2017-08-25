@@ -15,7 +15,6 @@
     },
     mounted () {
       this.$http.get('/topics?tab=ask').then((backData) => {
-        console.log(backData.data.data)
         this.askList = backData.data.data
       })
     },

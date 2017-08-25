@@ -15,7 +15,6 @@
     },
     mounted () {
       this.$http.get('/topics?tab=job').then((backData) => {
-        console.log(backData.data.data)
         this.jobList = backData.data.data
       })
     },

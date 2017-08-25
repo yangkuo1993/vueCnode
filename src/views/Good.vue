@@ -15,7 +15,6 @@
     },
     mounted () {
       this.$http.get('/topics?tab=good').then((backData) => {
-        console.log(backData.data.data)
         this.goodList = backData.data.data
       })
     },

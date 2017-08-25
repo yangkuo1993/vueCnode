@@ -15,7 +15,6 @@
     },
     mounted () {
       this.$http.get('/topics?tab=share').then((backData) => {
-        console.log(backData.data.data)
         this.shareList = backData.data.data
       })
     },
