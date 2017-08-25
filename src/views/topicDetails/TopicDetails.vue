@@ -9,6 +9,9 @@
       name: 'topicDetails',
       data () {
         return {}
+      },
+      destroyed () {
+        window.vm.$emit('hiddenHeader', true)
       }
     }
 </script>

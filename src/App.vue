@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header-Bar></Header-Bar>
+    <Header-Bar v-show="headerShow"></Header-Bar>
     <router-view></router-view>
   </div>
 </template>
@@ -11,8 +11,21 @@
   import header from './components/header/header'
   export default {
     name: 'app',
+    data () {
+      return {
+        headerShow: true
+      }
+    },
     components: {
       'Header-Bar': header
+    },
+    mounted () {
+      window.vm = this
+      console.log(window.vm)
+      window.vm.$on('hiddenHeader', (data) => {
+        console.log(data)
+        this.headerShow = data
+      })
     }
   }
 </script>

@@ -44,7 +44,7 @@
           this.choose = to.name.toLowerCase()
           this.tabType(this.choose)
         } else {
-          window.vm.$emit('hiddenHeader', true)
+          window.vm.$emit('hiddenHeader', false)
         }
       }
     }
