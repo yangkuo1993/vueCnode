@@ -1,7 +1,5 @@
 <template>
-    <div>
-      <List-Item :itemList="jobList"></List-Item>
-    </div>
+  <List-Item :itemList="jobList"></List-Item>
 </template>
 
 <script>

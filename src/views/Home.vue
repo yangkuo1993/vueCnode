@@ -1,11 +1,7 @@
 <template>
-    <div>
-      <keep-alive>
+  <keep-alive>
         <List-Item :itemList="homeList"></List-Item>
-      </keep-alive>
-      <!--<Footer-Item :styleObject="leftFooter"></Footer-Item>-->
-      <!--<Footer-Item :styleObject="rightFooter"></Footer-Item>-->
-    </div>
+  </keep-alive>
 </template>
 
 <script>

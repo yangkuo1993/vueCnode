@@ -1,7 +1,5 @@
 <template>
-    <div>
-      <List-Item :itemList="shareList"></List-Item>
-    </div>
+  <List-Item :itemList="shareList"></List-Item>
 </template>
 
 <script>

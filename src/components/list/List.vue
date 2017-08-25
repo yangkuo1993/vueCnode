@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="content-div">
     <ul class="list">
-      <li v-for="list in itemList" :key="list.id">
+      <li v-for="list in itemList" :key="list.id" @click="topicDetails(list.id)">
         <div class="left-img">
           <img class="header-img" :src="list.author.avatar_url" alt="">
         </div>
@@ -63,6 +63,11 @@
           return Math.floor(diffSeconds / years) + '年前'
         }
       }
+    },
+    methods: {
+      topicDetails (id) {
+        this.$router.push({name: 'TopicDetails', params: { id: id }})
+      }
     }
   }
 </script>
@@ -119,5 +124,11 @@
     flex-grow: 100;
     text-align: right;
     margin-right: 0.4rem;
+  }
+  .content-div{
+    height: 92%;
+    overflow: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 </style>

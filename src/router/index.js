@@ -5,6 +5,7 @@ const Job = resolve => require(['../views/Job'], resolve)
 const Good = resolve => require(['../views/Good'], resolve)
 const Share = resolve => require(['../views/Share'], resolve)
 const Ask = resolve => require(['../views/Ask'], resolve)
+const TopicDetails = resolve => require(['../views/topicDetails/TopicDetails'], resolve)
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/ask',
       name: 'Ask',
       component: Ask
+    },
+    {
+      path: '/topicDetails/:id',
+      name: 'TopicDetails',
+      component: TopicDetails
     }
   ]
 })

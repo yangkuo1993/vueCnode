@@ -1,7 +1,5 @@
 <template>
-    <div>
-      <List-Item :itemList="goodList"></List-Item>
-    </div>
+  <List-Item :itemList="goodList"></List-Item>
 </template>
 
 <script>

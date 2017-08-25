@@ -34,8 +34,18 @@
     },
     watch: {
       '$route' (to, from) {
-        this.choose = to.name.toLowerCase()
-        this.tabType(this.choose)
+        console.log(to)
+        if (to.name.toLowerCase() === 'all' ||
+          to.name.toLowerCase() === 'good' ||
+          to.name.toLowerCase() === 'ask' ||
+          to.name.toLowerCase() === 'share' ||
+          to.name.toLowerCase() === 'job'
+        ) {
+          this.choose = to.name.toLowerCase()
+          this.tabType(this.choose)
+        } else {
+          window.vm.$emit('hiddenHeader', true)
+        }
       }
     }
   }
