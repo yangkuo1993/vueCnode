@@ -1,5 +1,5 @@
 <template>
-    <div class="content-div">
+    <div>
       <List-Item :itemList="homeList"></List-Item>
       <!--<Footer-Item :styleObject="leftFooter"></Footer-Item>-->
       <!--<Footer-Item :styleObject="rightFooter"></Footer-Item>-->
@@ -39,17 +39,11 @@
       }
     },
     created () {
+    },
+    mounted () {
       this.$http.get('/topics').then((backData) => {
         console.log(backData.data.data)
         this.homeList = backData.data.data
-      })
-    },
-    mounted () {
-      window.vm.$on('chooseType', (data) => {
-        this.$http.get('/topics?tab=' + data).then((backData) => {
-          console.log(backData.data.data)
-          this.homeList = backData.data.data
-        })
       })
     },
     components: {
@@ -61,10 +55,4 @@
   }
 </script>
 <style scoped>
-  .content-div{
-    height: 92%;
-    overflow: hidden;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-  }
 </style>

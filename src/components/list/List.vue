@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="list">
-      <li v-for="list in itemList">
+      <li v-for="list in itemList" :key="list.id">
         <div class="left-img">
           <img class="header-img" :src="list.author.avatar_url" alt="">
         </div>

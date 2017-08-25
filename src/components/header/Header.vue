@@ -25,6 +25,11 @@
         this.choose = type
         window.vm.$emit('chooseType', type)
         type === 'all' ? this.underline.left = '0' : type === 'good' ? this.underline.left = '20%' : type === 'ask' ? this.underline.left = '40%' : type === 'share' ? this.underline.left = '60%' : this.underline.left = '80%'
+        if (type === 'all') {
+          this.$router.push('/')
+        } else {
+          this.$router.push(type)
+        }
       }
     }
   }
